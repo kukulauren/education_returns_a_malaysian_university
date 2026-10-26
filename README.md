@@ -7,11 +7,12 @@ The study examines how three perceived educational returns (employability confid
 ## Sample
 
 - Online questionnaire (Google Forms), 20 five-point Likert items: five each for employability confidence (EMP1–EMP5), skill relevance (SR1–SR5), income expectations (IE1–IE5) and career satisfaction (CS1–CS5).
+- Responses received up to 15 July 2026 (the cut-off for the conference extended abstract) are analysed; later responses are not part of this study.
 - Analysed sample: **N = 380** university students. Respondents aged below 18 are excluded in the first data step of the notebook, before any result is computed or printed.
 
 ## Data availability
 
-The survey dataset is **not publicly available**. It can be requested from the corresponding author for reasonable research purposes. The notebook expects the file `edu_return_data.xlsx` in the same folder as the notebook.
+The survey dataset is **not publicly available**. It can be requested from the corresponding author for reasonable research purposes. The notebook reads the Google Forms export `Towards Career success (Responses) (1).xlsx` from the same folder as the notebook and encodes it there: the answer labels (e.g. "Agree (4)") are converted to their 1–5 codes, and responses after the cut-off and respondents aged below 18 are removed.
 
 ## Contents
 
@@ -21,6 +22,7 @@ The survey dataset is **not publicly available**. It can be requested from the c
 | `analysis_results.xlsx`          | Exported results: descriptives, correlations, regression, SEM fit and paths                               |
 | `mediation_results.xlsx`         | Exported mediation results: regression paths and bootstrap indirect effects                               |
 | `figure2_expectation_gap.png`    | Distribution of the income expectation–career satisfaction gap (scores rescaled with the 1–5 scale range) |
+| `requirements.txt`               | Package versions used to run the notebook                                                                 |
 
 ## Analyses in the notebook
 
@@ -38,27 +40,29 @@ The survey dataset is **not publicly available**. It can be requested from the c
 
 ## Requirements
 
-Python 3.11 with:
+**Python 3.11 or newer** (the pinned numpy, scipy and scikit-learn versions do not install on older Python). The notebook was run with Python 3.11.2 and the versions in `requirements.txt`:
 
 ```
-pandas 2.3.3
-numpy 2.0.2
-scipy 1.13.1
-statsmodels 0.14.6
-scikit-learn 1.6.1
-semopy 2.3.11
-pingouin 0.5.5
-factor_analyzer 0.5.1
-matplotlib 3.9.4
-seaborn 0.13.2
-missingno
-openpyxl 3.1.5
+pandas==2.3.0
+numpy==2.4.6
+scipy==1.17.1
+statsmodels==0.14.6
+scikit-learn==1.8.0
+semopy==2.3.11
+pingouin==0.7.0
+factor_analyzer==0.5.1
+matplotlib==3.10.3
+seaborn==0.13.2
+missingno==0.5.2
+openpyxl==3.1.5
 ```
 
 ## How to run
 
-1. Place `edu_return_data.xlsx` (obtained on request) in this folder.
-2. Open `edu_return_analysis_N380.ipynb` in Jupyter and run all cells.
+1. Place `Towards Career success (Responses) (1).xlsx` (obtained on request) in this folder.
+2. Open `edu_return_analysis_N380.ipynb` in Jupyter with a Python 3.11+ kernel.
+3. Run the first cell, which installs the packages above (or run `pip install -r requirements.txt` beforehand), then restart the kernel.
+4. Run all cells.
 
 ## Citation
 
