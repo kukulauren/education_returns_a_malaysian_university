@@ -1,0 +1,17 @@
+# Survey data: not public (available from the corresponding author on reasonable request)
+*.xlsx
+!analysis_results.xlsx
+!mediation_results.xlsx
+*.csv
+
+# Raw Google Form export
+Towards Career success (Responses)*.xlsx
+
+# Office lock files and system files
+~$*
+.DS_Store
+
+# Jupyter / Python
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
