@@ -19,6 +19,7 @@ The survey dataset is **not publicly available**. It can be requested from the c
 | File                             | Description                                                                                               |
 | -------------------------------- | --------------------------------------------------------------------------------------------------------- |
 | `edu_return_analysis_N380.ipynb` | Full analysis, with outputs, for N = 380                                                                  |
+| `edu_return_r_analysis.ipynb`    | Robustness estimates of the structural equation model in R (lavaan): WLSMV, MLR and MLM, N = 380          |
 | `analysis_results.xlsx`          | Exported results: descriptives, correlations, regression, SEM fit and paths                               |
 | `mediation_results.xlsx`         | Exported mediation results: regression paths and bootstrap indirect effects                               |
 | `figure2_expectation_gap.png`    | Distribution of the income expectation–career satisfaction gap (scores rescaled with the 1–5 scale range) |
@@ -37,6 +38,14 @@ The survey dataset is **not publicly available**. It can be requested from the c
 9. Income expectation–career satisfaction gap score: both scores rescaled to 0–1 with the theoretical range of the five-point scale, (x − 1)/4, then differenced
 10. Robustness checks (outlier sensitivity, bootstrap confidence intervals, Spearman correlations, HC3 standard errors)
 11. Mediation through employability confidence (regression-based, equivalent to PROCESS Model 4; 5,000 bootstrap resamples, seed 42)
+12. Common method variance (Harman's single-factor test, one-factor CFA, unmeasured latent method factor)
+13. Measurement model: CFA loadings, composite reliability, AVE, Fornell–Larcker criterion and HTMT
+14. Item-level response frequencies
+15. Year of study by education level
+16. Robustness model with demographic controls
+17. Career satisfaction by education level: Welch's ANOVA and Kruskal–Wallis test
+
+The R notebook re-estimates the structural equation model with WLSMV (items treated as ordered categories), MLR and MLM (Satorra–Bentler scaled χ²), using the same cut-off, encoding and exclusion of respondents below 18.
 
 ## Requirements
 
@@ -63,6 +72,8 @@ openpyxl==3.1.5
 2. Open `edu_return_analysis_N380.ipynb` in Jupyter with a Python 3.11+ kernel.
 3. Run the first cell, which installs the packages above (or run `pip install -r requirements.txt` beforehand), then restart the kernel.
 4. Run all cells.
+
+For the R notebook, open `edu_return_r_analysis.ipynb` with an R kernel (it was run in Google Colab with R 4.6.1 and lavaan 0.7-3), upload the same responses file, and run all cells; the first cell installs lavaan. The data cell looks for the file under `/content/` (Colab); change that path if you run it elsewhere.
 
 ## Citation
 
